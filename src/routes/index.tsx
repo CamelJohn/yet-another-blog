@@ -2,7 +2,8 @@ import { RouterProvider, createBrowserRouter, type RouteObject } from 'react-rou
 import RootLayout from '../layouts/RootLayout';
 import { PostsPage } from '../pages/posts.page';
 import { NotFoundPage } from '../pages/404/404.page';
-
+import { FeatureCardsWrapper } from '../layouts/FeatureCards/FeatureCardsWrapper';
+import MarkdownPost from '../posts/test.md';
 const routes: RouteObject[] = [
   {
     path: '',
@@ -13,12 +14,22 @@ const routes: RouteObject[] = [
         element: <div>welcome page</div>,
       },
       {
-        path: 'posts',
+        path: 'blogposts',
         element: <PostsPage />,
+        children: [
+          {
+            path: ':feature',
+            element: <FeatureCardsWrapper />,
+          },
+          {
+            path: ':feature/view',
+            element: <MarkdownPost />,
+          },
+        ],
       },
       {
         path: '*',
-        element: <NotFoundPage />
+        element: <NotFoundPage />,
       },
     ],
   },

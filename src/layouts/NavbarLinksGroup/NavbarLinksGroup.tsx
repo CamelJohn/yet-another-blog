@@ -39,7 +39,7 @@ export function LinksGroup({ icon: Icon, label, initiallyOpened, links, link }: 
       <UnstyledButton onClick={() => setOpened((o) => !o)} className={classes.control}>
         <Group justify="space-between" gap={0}>
           <Box style={{ display: 'flex', alignItems: 'center' }}>
-            <ThemeIcon variant="light" size={30}>
+            <ThemeIcon variant="light" size={30} style={{ borderRadius: 4 }}>
               <Icon size={18} />
             </ThemeIcon>
             {link ? <Box component={NavLink} className={classes.rootLink} to={link} ml="md">{label}</Box> : <Box ml="md">{label}</Box>}
