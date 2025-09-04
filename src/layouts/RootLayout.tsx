@@ -1,7 +1,7 @@
-import { Outlet, ScrollRestoration, NavLink as RouterDomNavLink } from 'react-router-dom';
+import { Outlet, ScrollRestoration } from 'react-router-dom';
 import { ColorSchemeScript, mantineHtmlProps, AppShell, Burger } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { NavLink } from '@mantine/core';
+import { NavbarNested } from './NavbarNested/NavbarNested';
 
 const RootLayout = () => {
   const [opened, { toggle }] = useDisclosure();
@@ -16,26 +16,25 @@ const RootLayout = () => {
       <body>
         <AppShell
           padding="md"
-          header={{ height: 60 }}
+          // header={{ height: 60 }}
           navbar={{
             width: 300,
             breakpoint: 'sm',
             collapsed: { mobile: !opened },
           }}
         >
-          <AppShell.Header style={{
+          {/* <AppShell.Header style={{
             display: 'flex',
             alignItems: 'center',
             padding: '0 1.5em'
           }}>
             <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-            <div>Yet another blogposts site</div>
-          </AppShell.Header>
-
+            <div>yet another blogpost site</div>
+          </AppShell.Header> */}
           <AppShell.Navbar>
-            <NavLink to="posts" component={RouterDomNavLink} label="posts" />
+            {/* <Burger opened={opened} onClick={toggle}  size="sm" /> */}
+              <NavbarNested />
           </AppShell.Navbar>
-
           <AppShell.Main>
             <Outlet />
           </AppShell.Main>
